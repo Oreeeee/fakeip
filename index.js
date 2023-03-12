@@ -1,22 +1,28 @@
 // Get HTML elements
 const ipField = document.getElementById("ipField");
 const generateButton = document.getElementById("generateButton");
+const fIPCount = document.getElementById("fIPCount");
 
-// Set on click listener for a generate button
-generateButton.addEventListener("click", generateIP);
+generateButton.addEventListener("click", generateIP); // Set on click listener for a generate button
 
-// First load execution
-generateIP();
+generateIP(); // First load execution
 
 function generateIP() {
   const ipOffset = 255;
-  let ip = "";
-  for (let i = 1; i <= 4; i += 1) {
-    let ipSection = Math.floor(Math.random() * ipOffset);
-    ip += ipSection;
-    if (i != 4) {
-      ip += ".";
+  const generateCount = fIPCount.value;
+  let ips = "";
+  for (let i = 1; i <= generateCount; i += 1) {
+    // Generate multiple IPs
+    for (let j = 1; j <= 4; j += 1) {
+      // Generate one IP
+      let ipSection = Math.floor(Math.random() * ipOffset); // Generate one section of one IP
+      ips += ipSection;
+      if (j != 4) {
+        // Add a . if the IP number isn't the last one
+        ips += ".";
+      }
     }
+    ips += "<br>";
   }
-  ipField.innerHTML = ip;
+  ipField.innerHTML = ips;
 }
