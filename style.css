@@ -12,6 +12,13 @@ body {
   font-family: "Quicksand";
 }
 
-.margin5px {
-  margin: 5px;
+#generateButton {
+  background-color: black;
+  border: 2px solid greenyellow;
+  padding: 8px 30px;
+  border-radius: 8px;
+  text-align: center;
+  color: greenyellow;
+  font-size: 16px;
+  margin: 10px;
 }
